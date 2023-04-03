@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- index.html -->
+<!-- Displays an h:dataTable of the addresses in the address book -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Bloglar</title>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+        <h:outputStylesheet name="style.css" library="css"/>
+    </h:head>
+    <h:body >
+        <ui:include src="./resources/components/navbar.xhtml"/>
+        <div class="container-fluid bg-light p-5 mb-5 ">                   
+            <h3 class="text-center">Blog Ekleyin</h3>
+            <p class="text-center">
+                Bu sayfada blog ekleyebilirsiniz.
+            </p>
+            <div class="container-fluid ms-auto ">
+                <h:form>
+                    <div class="text-center">
+                        <h:outputText  value="#{Spectra.errorMessage}"/>
+                    </div>
+                    <div class="text-center ">
+                        <h:inputTextarea  class="w-50 h-50" value="#{Spectra.blogPost}"></h:inputTextarea>
+                    </div>
+                    <br></br>
+                    <div class="text-center">
+                        <col>
+                            <h:commandButton style="background-color:#4282AA;" class="btn btn-primary btn-lg active" value="Blog Ekle" action="#{Spectra.saveBlogPost()}"/>
+                        </col>
+                        <col>
+                            <h:commandButton style="background-color:#4282AA;" class="btn btn-primary btn-lg active" value="Blogları görüntüle" action="#{Spectra.redirect('ListBlogs.xhtml')}"/>
+                        </col>
+                        <col>
+                            <h:commandButton style="background-color:#4282AA;" class="btn btn-primary btn-lg active" value="Çıkış yap" action="#{Spectra.redirectToLoginPage()}"/>
+                        </col>
+                    </div>
+
+                </h:form>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <ui:include src="./resources/components/footer.xhtml"/>
+    </h:body>
+</html>

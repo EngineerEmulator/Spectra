@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- index.html -->
+<!-- Displays an h:dataTable of the addresses in the address book -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <style>
+            a{
+                all:unset;
+            }
+        </style>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BlogList</title>
+        <h:outputStylesheet library="css" name="style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+        <script src="https://kit.fontawesome.com/ce36771df4.js" crossorigin="anonymous"></script>
+
+    </h:head>
+    <h:body>
+
+        <ui:include src="./resources/components/navbar.xhtml"/>
+        <div class="container p-3">
+            <div class="row text-center">
+                <h3>Blog Listesi</h3> 
+                <small> Paylaştığınız blogları bu sayfadan görüntüleyebilirsiniz.</small>
+            </div>
+            <div class="row" style="padding:5vh 10vw !important;">
+
+                <h:dataTable
+                    class="table" value="#{Spectra.fetchBlogPosts()}" var="dataSource">
+                    <h:column>
+                        <f:facet name="header">Blog</f:facet>
+                            #{dataSource.BlogPost}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Oluşturulma Tarihi</f:facet>
+                            #{dataSource.CreateDate}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">En Son Güncellenme Tarihi</f:facet>
+                            #{dataSource.UpdateDate}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Oluşturan Kişi</f:facet>
+                            #{dataSource.CreatedBy}
+                    </h:column>
+                    <h:column>
+                        <h:form>
+                            <h:commandLink value="Sil" action="#{Spectra.deleteBlogPost(dataSource.Id)}"/>
+                        </h:form>
+                    </h:column>
+                    <h:column>
+                        <h:form>
+                            <h:commandLink value="Düzenle" action="#{Spectra.navigateToEditBlogPost(dataSource.Id)}"/>
+                        </h:form>
+                    </h:column>
+                </h:dataTable>
+
+                <h:form>
+                    <div class="row">
+                        <div class="col-2"> 
+                            <h:commandButton class="btn btn-outline-info" value="Blog ekle" action="#{Spectra.redirect('AddBlog.xhtml')}"/>
+                        </div>
+                        <div class="col-2">  
+                            <h:commandButton class="btn btn-outline-success" value="Kullanıcı Mesajlarını Görüntüle" action="ListUserMessages.xhtml"/>
+
+                        </div>
+                        <div class="col-8 text-end">  
+                            <h:commandButton class="btn btn-danger" value="Çıkış yap" action="#{Spectra.redirectToLoginPage()}"/>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+       <ui:include src="./resources/components/footer.xhtml"/>
+
+
+    </h:body>
+</html>

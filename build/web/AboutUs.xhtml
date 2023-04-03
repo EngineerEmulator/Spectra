@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!-- addentry.html -->
+<!-- Form for adding an entry to an address book -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <h:head>
+    <title>Anasayfa</title>
+    <h:outputStylesheet name="style.css" library="css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/4af36e3986.js" crossorigin="anonymous"></script>
+  </h:head>
+  <h:body>
+    <ui:include src="./resources/components/navbar.xhtml"/>
+    <div class="container">
+      <div class="row">
+        <h:graphicImage name="hakkinda.png" library="images"/>
+      </div>
+      <div style="color:#4282AA;" class="row mb-5 ms-5 me-5">
+        <h2>Spectra Hakkında</h2>
+        <h4> Spectra yaşam koçluğu 2020 yılında 3 işadamı tarafından, insanlara tecrübelerini aktarmak ve insanların kendilerini keşfetmekteki
+          eksikliklerinin farkedilmesiyle, bu eksikliklerin giderilmesine yönelik çalışmalar yapan ve bu çalışmalarını tüm dünyaya yaymaya 
+          çalışan bir sistematik yaşam koçluğu hizmetidir. </h4>
+      </div>
+      <div class="row m-5">
+        <div class="col-1 p-3" style="background-color:#4282AA;"></div>
+        <div class="col-11 p-3" style="background-color:#C8D9EE;">
+        <h5> Yaşam koçluğu adı altında öğrenci koçluğu, işadamı koçluğu, kurum kültürü koçluğu vs. birçok alanda hizmet vermektedir.
+          Kalite standartları uluslarası yaşam koçluğu standartlarıdır. Her alanda profesyonel olan ekibimiz için Koçluk Ekibimiz
+          başlığına tıklayabilirsiniz.
+        </h5>
+          </div>
+      </div>
+    </div>
+    <ui:include src="./resources/components/footer.xhtml"/>
+  </h:body>
+</html>
